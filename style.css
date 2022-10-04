@@ -1,4 +1,4 @@
-body {
+html {
     background-image: url("assets/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -17,4 +17,24 @@ body {
     100% {
         opacity: 1;
      }
+  }
+  div.top ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    border-radius: 15px;
+  }
+  
+  div.top li {
+    float: left;
+  }
+  
+  div.top li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
   }

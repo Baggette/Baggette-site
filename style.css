@@ -6,7 +6,7 @@ html {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
-    animation: fadeInAnimation ease 4s;
+    animation: fadeInAnimation ease 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
   }
@@ -30,7 +30,9 @@ html {
   div.top li {
     float: left;
   }
-  
+  div.top li:hover{
+  background-color: black;
+}
   div.top li a {
     display: block;
     color: white;
@@ -38,3 +40,11 @@ html {
     padding: 14px 16px;
     text-decoration: none;
   }
+div.about {
+    background-color: gray;
+    opacity: 0.6;
+    height: 80vh;
+    width: 90vh;
+    margin: auto;
+    border-radius: 5px;
+}

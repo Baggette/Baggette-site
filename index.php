@@ -1,7 +1,7 @@
 <?php
 ob_start();
 if(!isset($_COOKIE['visited'])) {
-  setcookie('visited', 'false', 2147483647, '/') or die ("<script> console.log(Cookies might be disabled) </script>");
+  setcookie('visited', 'false', 2147483647, '/') or die ("<script> console.log('Cookies might be disabled') </script>");
 }
 ?>
 <!DOCTYPE html>

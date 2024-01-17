@@ -37,12 +37,12 @@ if(!isset($_COOKIE['visited'])) {
 if(!isset($_COOKIE['visited'])) {
   echo "<script> console.log('Cookies are disabled.') </script>";
 } elseif ($_COOKIE['visited'] == 'false') {
+  setcookie('visited', 'true', 2147483647, '/') or die ("<script> console.log('Cookies are disabled.') </script>");
   $counter = fopen("counter.txt", "r+") or die("<script> console.log('Unable to open file!') </script>");
   $count = fread($counter,filesize("counter.txt"));
   $count = $count + 1;
   fclose($counter);
   file_put_contents("counter.txt", $count);
-  echo ("<script> document.cookie = 'visited=true; expires=Tue, 19 Jan 2038 03:14:07 UTC'; </script>");
 }
 ?>
 

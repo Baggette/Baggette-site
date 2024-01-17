@@ -1,7 +1,7 @@
 <?php
 ob_start();
 if(!isset($_COOKIE['visited'])) {
-  setcookie('visited', 'false', 2147483647, '/') or die ("<script> console.log(Cookies are disabled.) </script>");
+  setcookie('visited', 'false', 2147483647, '/') or die ("<script> console.log(Cookies might be disabled) </script>");
 }
 ?>
 <!DOCTYPE html>
@@ -35,10 +35,10 @@ if(!isset($_COOKIE['visited'])) {
 </body>
 <?php
 if(!isset($_COOKIE['visited'])) {
-  echo "<script> console.log('Cookies are disabled.') </script>";
+  echo "<script> console.log('Cookies may be disabled or cookie failed to set') </script>";
 } elseif ($_COOKIE['visited'] == 'false') {
-  setcookie('visited', 'true', 2147483647, '/') or die ("<script> console.log('Cookies are disabled.') </script>");
-  $counter = fopen("counter.txt", "r+") or die("<script> console.log('Unable to open file!') </script>");
+  setcookie('visited', 'true', 2147483647, '/') or die ("<script> console.log('Cookies may be disabled or it may not exist') </script>");
+  $counter = fopen("counter.txt", "r+") or die("<script> console.log('cannot access counter file') </script>");
   $count = fread($counter,filesize("counter.txt"));
   $count = $count + 1;
   fclose($counter);

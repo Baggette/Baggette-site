@@ -30,7 +30,7 @@ if(!isset($_COOKIE['visited'])) {
         <p id="paragraph">internet dude that does internet things</p>
     </div>
     <div class="visitors">
-      <p id="visitors">Visitors: <?php echo file_get_contents("counter.txt");?></p>
+      <p id="visitors"></p>
     </div>
 </body>
 <?php

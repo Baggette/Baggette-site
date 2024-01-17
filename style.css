@@ -69,3 +69,9 @@ div.about div.profile-image{
   padding: 0;
   z-index: -1;
 }
+div.visitors{
+  background-color: gray;
+  width: 20vh;
+  margin: auto;
+  border-radius: 5px;
+}

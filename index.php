@@ -1,6 +1,11 @@
+<?php
+ob_start();
+if(!isset($_COOKIE['visited'])) {
+  setcookie('visited', 'false', 2147483647, '/') or die ("<script> console.log(Cookies are disabled.) </script>");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
@@ -24,5 +29,20 @@
         </div>
         <p id="paragraph">internet dude that does internet things</p>
     </div>
-  <script type="text/javascript" src="//counter.websiteout.net/js/13/0/0/1"></script>
+    <div class="visitors">
+      <p id="visitors">Visitors: <?php echo file_get_contents("counter.txt");?></p>
+    </div>
 </body>
+<?php
+if(!isset($_COOKIE['visited'])) {
+  echo "<script> console.log('Cookies are disabled.') </script>";
+} elseif ($_COOKIE['visited'] == 'false') {
+  $counter = fopen("counter.txt", "r+") or die("<script> console.log('Unable to open file!') </script>");
+  $count = fread($counter,filesize("counter.txt"));
+  $count = $count + 1;
+  fclose($counter);
+  file_put_contents("counter.txt", $count);
+  echo ("<script> document.cookie = 'visited=true; expires=Tue, 19 Jan 2038 03:14:07 UTC'; </script>");
+}
+?>
+

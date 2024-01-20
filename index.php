@@ -1,8 +1,12 @@
 <?php
 ob_start();
 function visitorlogger() {
+  if(is_null($_SERVER["HTTP_CF_CONNECTING_IP"]) == true) {
+    $text = $_SERVER['REMOTE_ADDR'].PHP_EOL;
+  } else {
+    $text = $_SERVER["HTTP_CF_CONNECTING_IP"].PHP_EOL;
+  }
   $file = fopen('../visitors.txt', 'a') or die('unable to open file');
-  $text = $_SERVER['REMOTE_ADDR'].PHP_EOL;
   fwrite($file, $text);
   fclose($file);
   $counter = fopen("counter.txt", "r+") or die("<script> console.log('cannot access counter file') </script>");

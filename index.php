@@ -1,7 +1,20 @@
 <?php
 ob_start();
-if(!isset($_COOKIE['visited'])) {
-  setcookie('visited', 'false', 2147483647, '/') or die ("<script> console.log('Cookies might be disabled') </script>");
+function visitorlogger() {
+  $file = fopen('../visitors.txt', 'a') or die('unable to open file');
+  $text = $_SERVER['REMOTE_ADDR'];
+  fwrite($file, $text);
+  fclose($file);
+  $counter = fopen("counter.txt", "r+") or die("<script> console.log('cannot access counter file') </script>");
+  $count = fread($counter,filesize("counter.txt"));
+  $count = $count + 1;
+  fclose($counter);
+  file_put_contents("counter.txt", $count);
+}
+if( strpos(file_get_contents('../visitors.txt'),$_SERVER['REMOTE_ADDR']) !== false) {
+
+} else {
+  visitorlogger();
 }
 ?>
 <!DOCTYPE html>
@@ -33,16 +46,5 @@ if(!isset($_COOKIE['visited'])) {
       <p id="visitors"></p>
     </div>
 </body>
-<?php
-if(!isset($_COOKIE['visited'])) {
-  echo "<script> console.log('Cookies may be disabled or cookie failed to set') </script>";
-} elseif ($_COOKIE['visited'] == 'false') {
-  setcookie('visited', 'true', 2147483647, '/') or die ("<script> console.log('Cookies may be disabled or it may not exist') </script>");
-  $counter = fopen("counter.txt", "r+") or die("<script> console.log('cannot access counter file') </script>");
-  $count = fread($counter,filesize("counter.txt"));
-  $count = $count + 1;
-  fclose($counter);
-  file_put_contents("counter.txt", $count);
-}
-?>
+
 

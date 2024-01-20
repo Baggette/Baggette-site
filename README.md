@@ -3,4 +3,4 @@ My pesonal website, WIP
 
 
 # Baggette-site-unflashbang
-Remove flashbang, replace with nuke ez pz
+Remove flashbang ez pz

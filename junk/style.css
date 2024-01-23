@@ -52,3 +52,9 @@ div.about ul{
     padding: 0;
     overflow: hidden;
 }
+div.visitors{
+  background-color: gray;
+  width: 20vh;
+  margin: auto;
+  border-radius: 5px;
+}

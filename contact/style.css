@@ -38,3 +38,9 @@ body {
     padding: 10px 10px;
     text-decoration: none;
   }
+  div.visitors{
+    background-color: gray;
+    width: 20vh;
+    margin: auto;
+    border-radius: 5px;
+  }
